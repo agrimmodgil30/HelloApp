@@ -2,15 +2,25 @@ public class HelloApp {
 
     public static void main(String[] args) {
 
-        String names;
+        StringBuilder names = new StringBuilder();
 
-        // Check if arguments were provided
-        if (args.length > 0) {
-            // Join all names with comma and space
-            names = String.join(", ", args);
+        // Check if no arguments are provided
+        if (args.length == 0) {
+            names.append("World");
         } else {
-            // Default value
-            names = "World";
+
+            boolean first = true;
+
+            // Enhanced for loop to iterate through arguments
+            for (String name : args) {
+
+                if (!first) {
+                    names.append(", ");
+                }
+
+                names.append(name);
+                first = false;
+            }
         }
 
         // Print greeting
